@@ -8,6 +8,16 @@ def hello_world():
     return render_template("index.html")
 
 
+@app.route("/query")
+def query():
+    if "q" in request.args:
+        query = request.args["q"]
+        response = process_query(query)
+        return response
+    else:
+        return ""
+
+
 @app.route("/submit", methods=["POST"])
 def submit():
     input_name = request.form.get("name")
