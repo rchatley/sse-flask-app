@@ -14,5 +14,10 @@ def submit():
     input_age = request.form.get("age")
     return render_template("hello.html", name=input_name, age=input_age)
 
-# if __name__ == "__main__":
-#     app.run(host="0.0.0.0", port=int(os.getenv("PORT", 8000)), debug=False)
+
+def process_query(query):
+    if query == "dinosaurs":
+        return "Dinosaurs ruled the Earth 200 million years ago"
+    else:
+        return "Unknown"
+    return None
